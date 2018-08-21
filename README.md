@@ -7,10 +7,10 @@ Deep learning-based python package for general purpose data integration framewor
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
 
 ### Requirements
-  * pandas
-+numpy
-+tensorflow
-+sklearn
+  *pandas
+  *numpy
+  *tensorflow
+  *sklearn
 
 ### Installing
 
