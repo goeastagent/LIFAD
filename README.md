@@ -1,20 +1,16 @@
 # Project Title
 
-Deep learning-based python package for general purpose data integration framework. As a main component, Gated Recurrent Units (GRU) is used for accpting longitudinal(time series) data.
-This framework is capable of incorporating multiple domain of sources for a binary classification task. 
-
+Deep learning-based python package for general purpose data integration framework. 
 
 ## Getting Started
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
 
-### Prerequisites
-
-What things you need to install the software and how to install them
-
-```
-Give examples
-```
+### Requirements
++pandas
++numpy
++tensorflow
++sklearn
 
 ### Installing
 
