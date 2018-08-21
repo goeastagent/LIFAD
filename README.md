@@ -12,14 +12,25 @@ These instructions will get you a copy of the project up and running on your loc
   * tensorflow
   * sklearn
 
-### Installing
-
-A step by step series of examples that tell you how to get a development env running
-
-Say what the step will be
+### Example code
 
 ```
-Give the example
+m = MMRNN()
+
+m.append_component('m1', m1.shape[2], m1_hidden, m1.shape[1])
+m.append_component('m2', m2.shape[2], m2_hidden, m2.shape[1])
+m.append_component('m3', m3.shape[2], m3_hidden, m3.shape[1])
+
+m.append_data('m1', IDs_m1, y_m1, seqlen_m1)
+m.append_data('m2', IDs_m2, y_m2, seqlen_m2)
+m.append_data('m3', IDs_m3, y_m3, seqlen_m3)
+
+m.append_test_overlapIDs(testIDs)
+m.append_training_overlapIDs(trainIDs)
+m.build_integrative_network()
+m.training(batch_size)
+
+m.evalute_accuracy()
 ```
 
 And repeat

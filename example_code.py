@@ -7,6 +7,9 @@ m1_hidden = 2
 m2_hidden = 3
 m3_hidden = 4
 
+
+dm = DataManager()
+
 m1, y_m1, IDs_m1, seqlen_m1 = dm.generate_m1()
 m2, y_m2, IDs_m2, seqlen_m2 = dm.generate_m2()
 m3, y_m3, IDs_m3, seqlen_m3 = dm.generate_m3()
@@ -17,6 +20,10 @@ m = MMRNN()
 m.append_component('m1', m1.shape[2], m1_hidden, m1.shape[1])
 m.append_component('m2', m2.shape[2], m2_hidden, m2.shape[1])
 m.append_component('m3', m3.shape[2], m3_hidden, m3.shape[1])
+
+m.append_data('m1', IDs_m1, y_m1, seqlen_m1)
+m.append_data('m2', IDs_m2, y_m2, seqlen_m2)
+m.append_data('m3', IDs_m3, y_m3, seqlen_m3)
 
 # 5-fold CV
 test_folds = dm.generate_crossvalidation_set(overlapIDs)
