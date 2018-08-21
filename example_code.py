@@ -1,6 +1,5 @@
 from mmrnn import *
 
-
 batch_size = 32
 
 m1_hidden = 2
