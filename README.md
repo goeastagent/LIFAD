@@ -23,7 +23,7 @@ m.append_component('m3', m3.shape[2], m3_hidden, m3.shape[1])
 ```
 
 Setup each modality. In this example, 3 modalities of data (m1, m2, and m3) will be used.
-The code above defines name of the modality, dimension of input, dimension of hidden state, and length of time series. Data m has shape (#samples, length of time series, size of input dimension). 
+The code above defines name of the modality, dimension of input, dimension of hidden state, and length of time series. Data m has a shape (#samples, length of time series, size of input dimension). 
 ```
 
 m.append_data('m1', IDs_m1, m1, y_m1, seqlen_m1)
@@ -41,6 +41,10 @@ m.training(batch_size)
 
 m.evalute_accuracy()
 ```
+
+Training and test.
+
+The entire code is given in the file "exmple_code.py"
 
 And repeat
 
