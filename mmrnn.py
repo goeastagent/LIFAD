@@ -23,7 +23,7 @@ class MMRNN:
         
         self.training_overlapIDs = []
         self.test_overlapIDs = []
-        
+
     def append_component(self, name, n_input, n_hidden, max_seq_len, cell=None, optimizer=None):
         x = tf.placeholder(tf.float32, [None, max_seq_len, n_input])
         y = tf.placeholder(tf.float32, [None])
@@ -114,6 +114,31 @@ class MMRNN:
     def evaluate_accuracy(self):
         y, estimated = self.predict_test()
         return sum(y==estimated)/float(len(estimated))
+
+    def evaluate_sensitivity(self):
+        y, estimated = self.predict_test()
+        m = np.zeros(shape=(2,2))
+        m[0,0] = sum(estimated[y == 0] == 0)
+        m[0,1] = sum(estimated[y == 0] == 1)
+        m[1,0] = sum(estimated[y == 1] == 0)
+        m[1,1] = sum(estimated[y == 1] == 1)
+
+        spec = m[0,0]/float((m[0,0] + m[0,1]))
+        sens = m[1,1]/float((m[1,0] + m[1,1]))
+        return sens
+
+    def evaluate_specificity(self):
+        y, estimated = self.predict_test()
+        m = np.zeros(shape=(2,2))
+        m[0,0] = sum(estimated[y == 0] == 0)
+        m[0,1] = sum(estimated[y == 0] == 1)
+        m[1,0] = sum(estimated[y == 1] == 0)
+        m[1,1] = sum(estimated[y == 1] == 1)
+
+        spec = m[0,0]/float((m[0,0] + m[0,1]))
+        sens = m[1,1]/float((m[1,0] + m[1,1]))
+        return spec
+
 
     def evaluate_balanced_accuracy(self):
         y, estimated = self.predict_test()

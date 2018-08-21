@@ -16,24 +16,22 @@ class DataManager(object):
         return pd.Series(list(result))
 
     def generate_training_test_RIDs(self, RIDs):
+        test_folds = []
         y = self.get_labels(RIDs)
 
         positive_RIDs = np.array(RIDs[y == 1])
         negative_RIDs = np.array(RIDs[y == 0])
-
+        
         shuffle(positive_RIDs)
         shuffle(negative_RIDs)
         
         chunks_positive = len(positive_RIDs)//5
         chunks_negative = len(negative_RIDs)//5
 
-        testRIDs = np.concatenate((positive_RIDs[:chunks_positive], negative_RIDs[:chunks_negative]))
-        trainRIDs = np.concatenate((positive_RIDs[chunks_positive:],negative_RIDs[chunks_negative:]))
+        for i in range(5):
+            test_folds.append(np.concatenate((positive_RIDs[i*chunks_positive:(i+1)*chunks_positive], negative_RIDs[i*chunks_negative :(i+1)*chunks_negative])))
 
-        shuffle(testRIDs)
-        shuffle(trainRIDs)
-
-        return trainRIDs, testRIDs
+        return test_folds
 
     def get_labels(self,RIDs):
         labels = self.labels
