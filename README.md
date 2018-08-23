@@ -3,11 +3,22 @@
 Deep learning-based python package for general purpose data integration framework. 
 
 ## Getting Started
+
 ### Requirements
+LIFAD requires the following packages to be installed
+
   * pandas
   * numpy
   * tensorflow
   * sklearn
+
+Python pakcage management system can simply setup the packages
+```
+pip install pandas
+pip install numpy
+pip install sklearn
+pip install tensorflow
+```
 
 ### Example code
 
