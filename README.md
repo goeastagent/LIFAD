@@ -44,7 +44,7 @@ m.evalute_accuracy()
 
 Training and test.
 
-The entire code is given in the file "exmple_code.py"
+The entire example code is given in the file "exmple_code.py"
 
 ## Feature extraction
 
