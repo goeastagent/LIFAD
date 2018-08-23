@@ -5,7 +5,7 @@ Deep learning-based python package for general purpose data integration framewor
 ## Getting Started
 
 ### Requirements
-LIFAD requires the following packages to be installed
+LIFAD requires the following packages to be installed independently
 
   * pandas
   * numpy
@@ -56,7 +56,13 @@ The entire example code is given in the file "exmple_code.py"
 
 ## Feature extraction
 
-Explain how to run the automated tests for this system
+LIFAD is mainly used for feature extraction from single domain of data source. 
+
+```
+m.single_feature_extraction('m1',m1, seqlen_m1)
+```
+
+This gives fixed-size of feature vector from single modality.
 
 
 ## Citing
