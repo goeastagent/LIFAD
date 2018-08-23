@@ -50,13 +50,13 @@ m.training(batch_size)
 m.evalute_accuracy()
 ```
 
-Training and test.
+Training and test. LIFAD provides funtions for measuring accuracy, sensitivity, and specificity. 
 
 The entire example code is given in the file "exmple_code.py"
 
 ## Feature extraction
 
-LIFAD is mainly used for feature extraction from single domain of data source. 
+LIFAD is mainly used for feature extraction from single domain of data source. After training the LIFAD, 
 
 ```
 m.single_feature_extraction('m1',m1, seqlen_m1)
